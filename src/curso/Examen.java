@@ -14,7 +14,8 @@ import java.util.List;
  */
 public class Examen {
     
-    private List <Pregunta> preguntas = new ArrayList <> ();
+    private ArrayList <Pregunta> preguntas = new ArrayList <> ();
+    private ArrayList <Integer> respuestas = new ArrayList <> ();
     private String tema;
     private float puntajeAprobacion;
     
@@ -31,4 +32,21 @@ public class Examen {
         return tema;
     }
     
+    public float getPuntajeTotal (ArrayList <Pregunta> preguntas) {
+        float puntajePregunta;
+        float puntajeTotal = 0;
+    
+                for (int i=0; i<preguntas.size(); i++) {
+                    if (preguntas.get(i).esCorrecta(respuestas.get(i))) {
+                        puntajePregunta = preguntas.get(i).getPuntaje();
+                        puntajeTotal = puntajeTotal+puntajePregunta;
+                    }
+                }
+        
+        return puntajeTotal;
+         
+    }
+
+
+
 }
