@@ -25,5 +25,7 @@ public class ExamenEspecial extends Examen{
     public float getPenalizacionRespuestaIncorrecta () {
         return penalizacionRespuestaIncorrecta;
     }
+ 
+
     
 }
