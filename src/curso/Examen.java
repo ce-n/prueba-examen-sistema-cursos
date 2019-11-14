@@ -31,17 +31,24 @@ public class Examen {
     public String getTema () {
         return tema;
     }
+
+    public ArrayList<Pregunta> getPreguntas() {
+        return preguntas;
+    }
+    
+    public ArrayList <Integer> getRespuestas () {
+        return respuestas;
+    }
     
     public float getPuntajeTotal (ArrayList <Pregunta> preguntas) {
         float puntajePregunta;
         float puntajeTotal = 0;
-    
-                for (int i=0; i<preguntas.size(); i++) {
-                    if (preguntas.get(i).esCorrecta(respuestas.get(i))) {
+        for (int i=0; i<preguntas.size(); i++) {
+            if (preguntas.get(i).esCorrecta(respuestas.get(i))) {
                         puntajePregunta = preguntas.get(i).getPuntaje();
                         puntajeTotal = puntajeTotal+puntajePregunta;
-                    }
-                }
+            }
+        }
         
         return puntajeTotal;
          
