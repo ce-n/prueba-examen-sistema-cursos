@@ -43,10 +43,10 @@ public class ExamenEspecial extends Examen{
         float acumuladorPenalizaciones=0;
         for (int i=0; i<respuestas.size(); i ++) {
             if (getPreguntas().get(i).esCorrecta(respuestas.get(i)) == false) {
-                acumuladorPenalizaciones++;
-                totalpenalizacion = getPenalizacionRespuestaIncorrecta()*acumuladorPenalizaciones;    
+                acumuladorPenalizaciones++;  
             }    
         }
+        totalpenalizacion = getPenalizacionRespuestaIncorrecta()*acumuladorPenalizaciones;  
         return totalpenalizacion;
     }
     
