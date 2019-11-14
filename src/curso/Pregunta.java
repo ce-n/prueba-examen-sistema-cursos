@@ -1,7 +1,6 @@
 
 package curso;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Pregunta {
     private String consigna;
