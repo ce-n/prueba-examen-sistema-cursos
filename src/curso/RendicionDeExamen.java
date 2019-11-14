@@ -6,7 +6,7 @@ import java.util.List;
 public class RendicionDeExamen {
     private Examen examen;
     private ArrayList <Integer> respuestas = new ArrayList <> ();
-    private int puntajeMinmo;
+    private float puntajeMinimo;
     
     public RendicionDeExamen (Examen examen, ArrayList <Integer> respuestas) {
         
@@ -17,6 +17,16 @@ public class RendicionDeExamen {
     
     public Examen getExamen () {
         return examen;
+    }
+    
+    public boolean estaAprobado () {
+        boolean aprobado = false;
+        
+        if (puntajeMinimo == examen.getPuntajeTotal(examen.getPreguntas())) {
+             aprobado = true;
+        }
+        
+        return aprobado;
     }
 
     }
