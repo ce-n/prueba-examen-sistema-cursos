@@ -1,6 +1,7 @@
 
 package curso;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RendicionDeExamen {
     private Examen examen;
@@ -21,13 +22,23 @@ public class RendicionDeExamen {
     public boolean estaAprobado () {
         boolean aprobado = false;
         
-        if (puntajeMinimo == examen.getPuntajeTotal(examen.getPreguntas())) {
+        if (examen.getPuntajeTotal(examen.getPreguntas()) >= puntajeMinimo) {
              aprobado = true;
         }
         
         return aprobado;
     }
-
+    
+    @Override
+    public String toString () {
+        String aprobado = "Desaprobado";
+        if (this.estaAprobado()) {
+            aprobado = "Aprobo";
+        }
+        
+        return examen.getTema()+"("+aprobado+")";
     }
+
+}
 
 
