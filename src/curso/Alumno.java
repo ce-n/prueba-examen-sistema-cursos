@@ -2,7 +2,7 @@
 package curso;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 
 /**
  * Clase que representa a alumnos del curso
@@ -11,7 +11,7 @@ import java.util.List;
  * @see curso.RendicionDeExamen
  */
 public class Alumno {
-    private List <RendicionDeExamen> examenesRendidos = new ArrayList <> ();
+    private ArrayList <RendicionDeExamen> examenesRendidos = new ArrayList <> ();
     private String nombre;
     private int dni;
     
@@ -42,7 +42,6 @@ public class Alumno {
     public boolean rendirExamen (Examen examen, ArrayList <Integer> respuestas) {
         
         boolean nuevoExamenAgregado = false;
-        boolean nuncaSeRindio = true;
         
         for (int i=0; i<examenesRendidos.size()-1; i--) {
            
@@ -54,9 +53,21 @@ public class Alumno {
                   nuevoExamenAgregado = true;
                     
             }
-
-            return nuevoExamenAgregado;   
         }
-           
-    
+        return nuevoExamenAgregado;   
     }
+
+     @Override
+    public String toString () {
+        String historiaAcademica = nombre+": ";
+        Iterator <RendicionDeExamen> it = examenesRendidos.iterator();
+        
+        while (it.hasNext()) {
+            RendicionDeExamen rendicion = it.next();
+            historiaAcademica+= rendicion.toString()+"***";
+        }
+        return historiaAcademica;
+    }
+   
+}
+   
